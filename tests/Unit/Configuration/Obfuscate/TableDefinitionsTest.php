@@ -7,8 +7,8 @@
 
 namespace App\Tests\Unit\Configuration\Obfuscate;
 
-use App\Configuration\Obfuscate\Table;
-use App\Configuration\Obfuscate\TableDefinitions;
+use App\Configuration\Anonymify\Table;
+use App\Configuration\Anonymify\TableDefinitions;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 

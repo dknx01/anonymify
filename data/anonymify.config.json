@@ -1,0 +1,62 @@
+{
+  "truncate": [
+    "queue_history"
+  ],
+  "default_masking": {
+    "name": null,
+    "title": [
+      "item"
+    ]
+  },
+  "json": {
+    "item": [
+      "data"
+    ]
+  },
+  "binary_empty": {
+    "user_data": [
+      "document"
+    ]
+  },
+  "static_text": {
+    "document_comment": "Lorem ipsum dolor sit amet"
+  },
+  "scripts": [
+    "./scripts/test.sql"
+  ],
+  "tables": {
+    "user": {
+      "street": "Trantow Greens Straße"
+    }
+  },
+  "anonymize": {
+    "general": {
+      "email": "email",
+      "findById": {
+        "type": "numbers",
+        "args": [
+          1000,
+          5000
+        ]
+      },
+      "bIC": "bic",
+      "domain": "domain",
+      "fax": "fax_no",
+      "iban": "iban",
+      "phone": "phone_no",
+      "ip": "ip",
+      "vat_id": "vat",
+      "blz": "blz"
+    },
+    "tables": {
+      "profile": {
+        "email": "email_unique",
+        "zip": "zip",
+        "country": null,
+        "kontonr": "kontonr",
+        "name_real": "nomask",
+        "company_name": "company_unique"
+      }
+    }
+  }
+}

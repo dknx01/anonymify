@@ -14,7 +14,7 @@ use Symfony\Component\Filesystem\Filesystem;
 readonly class Reader
 {
     public function __construct(
-        #[Autowire('%kernel.project_dir%/data/pre-processing.schema.json')] private string $schemaPath,
+        #[Autowire('%kernel.project_dir%/data/anonymify.schema.json')] private string $schemaPath,
         private Validator $validator = new Validator(),
     ) {
     }

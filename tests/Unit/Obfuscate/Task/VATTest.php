@@ -7,10 +7,10 @@
 
 namespace App\Tests\Unit\Obfuscate\Task;
 
-use App\Configuration\Obfuscate\Definition;
-use App\Configuration\Obfuscate\Table;
-use App\Configuration\Obfuscate\TableDefinitions;
-use App\Obfuscate\Task\VAT;
+use App\Anonymify\Column\Task\VAT;
+use App\Configuration\Anonymify\Definition;
+use App\Configuration\Anonymify\Table;
+use App\Configuration\Anonymify\TableDefinitions;
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\Result;
 use Doctrine\ORM\EntityManager;

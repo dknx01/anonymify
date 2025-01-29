@@ -7,7 +7,7 @@
 
 namespace App\Tests\Unit\Configuration\Obfuscate;
 
-use App\Configuration\Obfuscate\Config;
+use App\Configuration\Anonymify\Config;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 

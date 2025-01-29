@@ -7,7 +7,7 @@
 
 namespace App\Configuration;
 
-use App\Configuration\Obfuscate\Config;
+use App\Configuration\Anonymify\Config;
 
 readonly class Processing
 {
@@ -28,7 +28,7 @@ readonly class Processing
         public array $scripts,
         public array $tables,
         public array $defaultMasking,
-        public Config $obfuscate,
+        public Config $anonymize,
     ) {
     }
 
@@ -42,7 +42,7 @@ readonly class Processing
             $obj->scripts ?: [],
             (array) $obj->tables ?: [],
             (array) $obj->default_masking,
-            Config::fromArray((array) $obj->obfuscate),
+            Config::fromArray((array) $obj->anonymize),
         );
     }
 }

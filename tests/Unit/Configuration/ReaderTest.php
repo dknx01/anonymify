@@ -15,16 +15,16 @@ class ReaderTest extends TestCase
 {
     public function testReadConfigWithoutError(): void
     {
-        $reader = new Reader(__DIR__.'/../../../data/pre-processing.schema.json');
-        $reader->readConfig(__DIR__.'/../../../data/pre-processing.config.json');
+        $reader = new Reader(__DIR__.'/../../../data/anonymify.schema.json');
+        $reader->readConfig(__DIR__.'/../../../data/anonymify.config.json');
         $this->expectNotToPerformAssertions();
     }
 
     public function testReadConfigWithErrors(): void
     {
         $this->expectException(ReaderValidationException::class);
-        $reader = new Reader(__DIR__.'/../../../data/pre-processing.schema.json');
-        $reader->readConfig(__DIR__.'/data/pre-processing_error.config.json');
+        $reader = new Reader(__DIR__.'/../../../data/anonymify.schema.json');
+        $reader->readConfig(__DIR__.'/data/anonymify_error.config.json');
         $this->expectNotToPerformAssertions();
     }
 }

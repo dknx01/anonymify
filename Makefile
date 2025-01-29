@@ -10,3 +10,6 @@ phpunit: ## run PHPUnit
 	vendor/bin/phpunit
 php-cs-fix: ## run PHP-CS-Fixer
 	vendor/bin/php-cs-fixer fix
+phpstan: ## run PHPStan
+	vendor/bin/phpstan
+qa: php-cs-fix phpstan phpunit ## run all qa steps

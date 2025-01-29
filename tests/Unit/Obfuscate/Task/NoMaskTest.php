@@ -7,10 +7,9 @@
 
 namespace App\Tests\Unit\Obfuscate\Task;
 
-use App\Configuration\Obfuscate\Definition;
-use App\Configuration\Obfuscate\Table;
-use App\Configuration\Obfuscate\TableDefinitions;
-use App\Obfuscate\Task\NoMask;
+use App\Configuration\Anonymify\Definition;
+use App\Configuration\Anonymify\Table;
+use App\Configuration\Anonymify\TableDefinitions;
 use Doctrine\ORM\EntityManager;
 use Faker\Factory;
 use PHPUnit\Framework\TestCase;
@@ -34,7 +33,7 @@ class NoMaskTest extends TestCase
 
     public function testGetName(): void
     {
-        $this->assertSame('nomask', NoMask::getName());
+        $this->assertSame('nomask', \App\Anonymify\Column\Task\NoMask::getName());
     }
 
     public function testRunForTable(): void
@@ -56,9 +55,9 @@ class NoMaskTest extends TestCase
         $task->run($definition, $tableDefinition);
     }
 
-    private function getTask(): NoMask
+    private function getTask(): \App\Anonymify\Column\Task\NoMask
     {
-        return new NoMask(
+        return new \App\Anonymify\Column\Task\NoMask(
             Factory::create('de_DE'),
             $this->entityManager->reveal(),
             $this->logger
