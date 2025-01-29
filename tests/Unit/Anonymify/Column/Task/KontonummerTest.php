@@ -7,7 +7,7 @@
 
 namespace App\Tests\Unit\Anonymify\Column\Task;
 
-use App\Anonymify\Column\Task\VAT;
+use App\Anonymify\Column\Task\Kontonummer;
 use App\Configuration\Anonymify\Definition;
 use App\Configuration\Anonymify\Table;
 use App\Configuration\Anonymify\TableDefinitions;
@@ -22,7 +22,7 @@ use Prophecy\Prophecy\ObjectProphecy;
 use Psr\Log\LoggerInterface;
 use Psr\Log\NullLogger;
 
-class VATTest extends TestCase
+class KontonummerTest extends TestCase
 {
     use ProphecyTrait;
     use TaskMockingTrait;
@@ -38,7 +38,7 @@ class VATTest extends TestCase
 
     public function testGetName(): void
     {
-        $this->assertSame('vat', VAT::getName());
+        $this->assertSame('kontonr', Kontonummer::getName());
     }
 
     public function testRun(): void
@@ -46,8 +46,7 @@ class VATTest extends TestCase
         // mock finding tables with column
         $resultTables = $this->prophesize(Result::class);
         $resultTables->fetchAllAssociative()->shouldBeCalled()->willReturn([
-            'tableToBeExcluded' => ['table' => 'tableToBeExcluded', 'COLUMN_NAME' => 'VAT'],
-            'table1' => ['table' => 'table1', 'COLUMN_NAME' => 'vat'],
+            'table1' => ['table' => 'table1', 'COLUMN_NAME' => 'konto'],
         ]);
         $connection = $this->prophesize(Connection::class);
         $connection->executeQuery(Argument::that(static fn ($query): bool => str_contains($query, 'information_schema')))
@@ -60,17 +59,17 @@ class VATTest extends TestCase
         // mock data in table
         $dataResult = $this->prophesize(Result::class);
         $dataResult->iterateAssociative()->shouldBeCalledOnce()->willReturn(
-            new \ArrayObject([['vat' => 'DE 111111111']])
+            new \ArrayObject([['konto' => '123']])
         );
         $connection->executeQuery('SELECT * FROM table1')
             ->shouldBeCalledOnce()
             ->willReturn($dataResult->reveal());
-        $connection->insert('ANONYMIFY_table1', ['vat' => 'DE 999999999'])->shouldBeCalledOnce()->willReturn(1);
+        $connection->insert('ANONYMIFY_table1', Argument::that(static fn ($data) => array_key_exists('konto', $data)))->shouldBeCalledOnce()->willReturn(1);
         $this->mockCopyData($connection);
         $this->entityManager->getConnection()->shouldBeCalled()->willReturn($connection->reveal());
 
         $tableDefinition = new TableDefinitions([]);
-        $definition = new Definition('vat', null);
+        $definition = new Definition('konto', null);
         $this->getTask()->run($definition, $tableDefinition);
     }
 
@@ -79,8 +78,8 @@ class VATTest extends TestCase
         // mock finding tables with column
         $resultTables = $this->prophesize(Result::class);
         $resultTables->fetchAllAssociative()->shouldBeCalled()->willReturn([
-            'table1' => ['table' => 'table1', 'COLUMN_NAME' => 'vat'],
-            'table2' => ['table' => 'table2', 'COLUMN_NAME' => 'vat'],
+            'table1' => ['table' => 'table1', 'COLUMN_NAME' => 'konto'],
+            'table2' => ['table' => 'table2', 'COLUMN_NAME' => 'konto'],
         ]);
         $connection = $this->prophesize(Connection::class);
         $connection->executeQuery(Argument::that(static fn ($query): bool => str_contains($query, 'information_schema')))
@@ -93,18 +92,19 @@ class VATTest extends TestCase
         // mock data in table
         $dataResult = $this->prophesize(Result::class);
         $dataResult->iterateAssociative()->shouldBeCalledOnce()->willReturn(
-            new \ArrayObject([['vat' => 'DE 111111111']])
+            new \ArrayObject([['konto' => '1234']])
         );
         $connection->executeQuery('SELECT * FROM table1')
             ->shouldBeCalledOnce()
             ->willReturn($dataResult->reveal());
 
-        $connection->insert('ANONYMIFY_table1', ['vat' => 'DE 999999999'])->shouldBeCalledOnce()->willReturn(1);
+        $connection->insert('ANONYMIFY_table1', Argument::that(static fn ($data) => array_key_exists('konto', $data)))
+            ->shouldBeCalledOnce()->willReturn(1);
         $this->mockCopyData($connection);
         $this->entityManager->getConnection()->shouldBeCalled()->willReturn($connection->reveal());
 
-        $tableDefinition = new TableDefinitions(['table2' => new Table('table2', ['vat' => null])]);
-        $definition = new Definition('vat', null);
+        $tableDefinition = new TableDefinitions(['table2' => new Table('table2', ['konto' => null])]);
+        $definition = new Definition('konto', null);
         $this->getTask()->run($definition, $tableDefinition);
     }
 
@@ -121,22 +121,23 @@ class VATTest extends TestCase
         // mock data in table
         $dataResult = $this->prophesize(Result::class);
         $dataResult->iterateAssociative()->shouldBeCalledOnce()->willReturn(
-            new \ArrayObject([['vat' => 'DE 111111111']])
+            new \ArrayObject([['konto' => '1223']])
         );
         $connection->executeQuery('SELECT * FROM table1')
             ->shouldBeCalledOnce()
             ->willReturn($dataResult->reveal());
-        $connection->insert('ANONYMIFY_table1', ['vat' => 'DE 999999999'])->shouldBeCalledOnce()->willReturn(1);
+        $connection->insert('ANONYMIFY_table1', Argument::that(static fn ($data) => array_key_exists('konto', $data)))
+            ->shouldBeCalledOnce()->willReturn(1);
         $this->mockCopyData($connection);
         $this->entityManager->getConnection()->shouldBeCalled()->willReturn($connection->reveal());
 
-        $definition = new Definition('vat', null);
+        $definition = new Definition('konto', null);
         $this->getTask()->runForTable($definition, 'table1');
     }
 
-    private function getTask(): VAT
+    private function getTask(): Kontonummer
     {
-        return new VAT(
+        return new Kontonummer(
             Factory::create('de_DE'),
             $this->entityManager->reveal(),
             $this->logger

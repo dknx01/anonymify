@@ -60,7 +60,11 @@ final class Number extends AnonymifyAbstract implements AnonymifyTask
         $this->generateTemporaryTable($table);
         foreach ($this->getRows($table) as $row) {
             if (!$this->isColumnBlank($row[$definition->column] ?? null)) {
-                $row[$definition->column] = random_int(...$definition->parameters);
+                $randomArgs = match (empty($definition->parameters)) {
+                    false => $definition->parameters,
+                    default => [0, 100000],
+                };
+                $row[$definition->column] = random_int(...$randomArgs);
             }
             $this->insertData($row);
             unset($row);

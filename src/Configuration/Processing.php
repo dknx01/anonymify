@@ -35,7 +35,7 @@ readonly class Processing
     public static function fromStdClass(\stdClass $obj): Processing
     {
         return new self(
-            $obj->truncate,
+            (array) $obj->truncate,
             (array) $obj->json,
             (array) $obj->binary_empty ?: [],
             (array) $obj->static_text ?: [],
