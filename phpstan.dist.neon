@@ -1,0 +1,8 @@
+includes:
+    - vendor/jangregor/phpstan-prophecy/extension.neon
+    - ./vendor/calebdw/fakerstan/extension.neon
+parameters:
+    level: 6
+    paths:
+        - src/
+        - tests/
