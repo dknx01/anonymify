@@ -1,493 +1,51 @@
 {
   "default_masking": {
     "address_line_1": null,
-    "address_line_2": null,
-    "cAdminName": null,
-    "cAdminPass": null,
-    "cAdminuser": null,
-    "cAdresszusatz": null,
-    "cAenderungDurch": null,
-    "cAnsprechpartner": null,
-    "cAnsprechpartnerName": null,
-    "cAnzeigename": null,
-    "cBearbeiter": null,
-    "cBenutzer": null,
-    "cBenutzername": null,
-    "cBenutzerPasswort": null,
-    "cDBName": null,
-    "cDBPass": null,
-    "cDBPasswort": null,
-    "cDBUser": null,
-    "cFirma": null,
-    "cFirmensitz": null,
-    "cFirmenzusatz": null,
-    "cFTPPass": null,
-    "cFTPUser": null,
-    "cGeschaeftsfuehrer": null,
-    "cGesellschafter": null,
-    "cHostingDomain": null,
-    "cHostingPasswort": null,
-    "cHROrt": null,
-    "cKontoinhaber": null,
-    "cKontoinhaberALT": null,
-    "cKontoinhaberNEU": null,
-    "cKundeFirma": null,
-    "cKundeNachname": null,
-    "cKundename": null,
-    "cKundeOrt": null,
-    "cKundeStrasse": null,
-    "cKundeVorname": null,
-    "cMailRechnung": null,
-    "cNachname": null,
-    "cName": [
-      "exs_order_metas",
-      "portfolio_absatzmarkt",
-      "portfolio_angeboti18n",
-      "portfolio_anwendungi18n",
-      "portfolio_distributionstypi18n",
-      "portfolio_leistungi18n",
-      "portfolio_platzierung",
-      "portfolio_produktfamiliei18n",
-      "portfolio_wertliste",
-      "re_order_items",
-      "tabrechnungprodukt",
-      "tabrechnungtransaktionenmeta",
-      "taccounthierachie",
-      "taccountrolle",
-      "taccountumgebung",
-      "taccountverwaltung",
-      "tanzahlmitarbeiter",
-      "tbranche",
-      "tcron",
-      "tdirektleistung",
-      "tdownloadprodukt",
-      "terfahrenquelle",
-      "terweiterung",
-      "terweiterungkategorie",
-      "tgeschaeftsform",
-      "thilfsmittel",
-      "thilfsmittelrubrik",
-      "thostingleistung",
-      "thostingleistungextra",
-      "thostingleistungextradomain",
-      "thostingleistunggruppe",
-      "thostingpossperrebereich",
-      "thostingpossperregrund",
-      "tjtlshippingversanddienstleister",
-      "tkategorie",
-      "tkaufprodukt",
-      "tland",
-      "tleistung",
-      "tlicapplication_old",
-      "tprodukt",
-      "trechnungskorrekturpos",
-      "treferenzgeschaeftsbereiche",
-      "tregistrierungszweck",
-      "tspkundensegment",
-      "tspprojekt",
-      "tspprojektgroessen",
-      "tsupportcaseanliegen",
-      "tsupportcaseprodukt",
-      "tsupportcaseproduktbereich",
-      "tsupportcasequelle",
-      "tsupportcasestatus",
-      "tsupportleistung",
-      "ttag",
-      "ttechnologiepartnerkategorie",
-      "tversandvolumen",
-      "tvertriebcasebranche",
-      "tvorlagenkategoriegruppen",
-      "tvorlagenkategorien",
-      "twarenwirtschaft",
-      "tzertifikat"
-    ],
-    "cNameDE": null,
-    "cNameEN": null,
-    "cNameIntern": null,
-    "company": null,
-    "company_name": [
-      "exs_seller_profiles"
-    ],
-    "cOrt": null,
-    "cOrt1": null,
-    "cOrt2": null,
-    "cOrtName": null,
-    "cServerPass": null,
-    "cServerPfad": null,
-    "cSqlPassword": null,
-    "cSqlUser": null,
-    "cSqlUserPass": null,
-    "cSteuernummer": null,
-    "cStrasse": null,
-    "cSyncName": null,
-    "cSyncPass": null,
-    "cSyncUser": null,
-    "cUser": null,
-    "cVorname": null,
-    "cWert": null,
-    "extra_address_line": null,
-    "family_name": null,
-    "firma": null,
-    "first_name": null,
-    "given_name": null,
-    "last_name": null,
-    "lastname": null,
-    "longname": null,
-    "nachname": null,
-    "name": [
-      "exs_order_metas"
-    ],
-    "shop_name": null,
-    "sql_user": null,
-    "street": null,
-    "tax_number": null,
-    "token": null,
-    "user_agent": null,
-    "vorname": null
+    "Name": [
+      "order_items"
+    ]
   },
   "json": {
-    "contract_account_consent": [
+    "contract_account": [
       "data"
-    ],
-    "hosting_mail_queue": [
-      "additional_data"
-    ],
-    "re_bad_billing_validations": [
-      "data"
-    ],
-    "toptin": [
-      "jJson"
     ]
   },
   "binary_empty": {
-    "thostingpos": [
-      "cFTPDaten"
+    "document": [
+      "content"
     ]
   },
   "static_text": {
-    "cKommentar": "Lorem ipsum dolor sit amet",
     "user_agent": "CompuGlobalHyperMegaNet Browser"
   },
   "scripts": [
-    "./scripts/contracts.sql",
-    "./scripts/contractshistory.sql",
-    "./scripts/taccounthistory.sql",
-    "./scripts/tansprechpartner.sql",
-    "./scripts/thostingpos.sql",
-    "./scripts/thostingposextra.sql"
+    "./scripts/test.sql"
   ],
   "tables": {
-    "taccounthistory": {
+    "account": {
       "cStrasse": "Trantow Greens Straße"
-    },
-    "tactionlog": {
-      "cParam": "Earth: Mostly Harmless",
-      "cResponse": "According to the legends, the Magratheans lived most of their lives underground."
-    },
-    "tmodulkeyfreischaltung_fehler": {
-      "cKey": "A***12"
-    },
-    "tservicepartner": {
-      "cBeschreibung": "Quia voluptatem dignissimos accusantium perspiciatis placeat ipsam.",
-      "cBeschreibung1": "Quaerat ad quod soluta provident cupiditate. Est nam non qui. Aliquid expedita vitae nam in.",
-      "cBeschreibung2": "Deleniti fugit eveniet.",
-      "cBeschreibung3": "Amet facilis error.",
-      "cBeschreibung4": "Voluptatem non distinctio. Nobis ab qui enim est omnis alias consectetur. In voluptatem praesentium hic inventore. In voluptas vel dolor.",
-      "cKurzbeschreibung": "Ipsam quia qui qui et excepturi sapiente.",
-      "cVermerkung": "Nemo optio impedit cupiditate aspernatur nostrum consequatur."
     }
   },
-  "obfuscate": {
+  "anonymize": {
     "general": {
       "email": "email",
-      "cKundeEmail": "email",
-      "cKundeemail": "email",
-      "cMailRechnung": null,
-      "kBetreuer": {
+      "order": null,
+      "findBy": {
         "type": "numbers",
         "args": [
           1000,
           5000
         ]
       },
-      "cBIC": "bic",
-      "cBICALT": "bic",
-      "cBICNEU": "bic",
-      "email_new": "bic",
-      "cDomain": "domain",
-      "cDomainNew": "domain",
-      "cDomainOld": "domain",
-      "cEmail": "email",
-      "cFacebook": "domain",
-      "cFax": "fax_no",
-      "cHostingShopURLs": "domain",
-      "cIBAN": "iban",
-      "cIBANALT": "iban",
-      "cIBANNEU": "iban",
-      "cKcUrl": "domain",
-      "cKundeTel": "phone_no",
-      "cKundetelefon": "phone_no",
-      "cKundeURL": "domain",
-      "cMail": "email",
-      "cMobil": "phone_no",
-      "cNodeHost": "domain",
-      "cNotfallMail": "email",
-      "company_url": "domain",
-      "cServerIP": "ip",
-      "cServerUrl": "domain",
-      "cShopHost": "domain",
-      "cShopLizenzenURLs": "domain",
-      "cShopUrl": "domain",
-      "cTel": "phone_no",
-      "cTelefon": "phone_no",
-      "cTestShopUrl": "domain",
-      "cTwitter": "domain",
-      "cURL": "domain",
-      "cUrl": "domain",
-      "cUrlDownloadExtern": "domain",
-      "cURLName": "domain",
-      "cUSTID": "vat",
-      "cVideoLink": "domain",
-      "cVideoURL": "domain",
-      "cXING": "domain",
-      "cYouTube": "domain",
-      "EMAIL": "email",
-      "email_current": "email",
-      "host": "domain",
-      "hostname": "domain",
-      "ip": "ip",
-      "ip_address": "ip",
-      "ipaddr": "ip",
-      "kSubscriptionmail": "email_unique",
-      "nBLZ": "blz",
-      "phone": "phone_no",
-      "phone_number": "phone_no",
-      "system_mail_address": "email",
+      "bic": "bic",
+      "doamin": "domain",
+      "fax": "fax_no",
+      "iban": "iban",
+      "client_ip": "ip",
+      "vat": "vat",
+      "subscription_mail": "email_unique",
+      "blz": "blz",
       "url": "domain"
-    },
-    "tables": {
-      "mc_sync_double_opt_in": {
-        "ip": "ip"
-      },
-      "mc_sync_emails": {
-        "email": "email_unique"
-      },
-      "taccount": {
-        "cMail": "email_unique",
-        "cPLZ": "zip",
-        "cLand": null,
-        "cTel": "phone_no",
-        "cFax": "fax_no",
-        "cBankinstitut": null,
-        "cBankname": null,
-        "nKontoNr": "kontonr",
-        "nBLZ": "blz",
-        "cIBAN": "iban",
-        "cBIC": "bic",
-        "cSepaRef": null,
-        "cMailRechnung": "email",
-        "cNotfallMail": "email"
-      },
-      "account_deleted": {
-        "salutation": null,
-        "zipcode": null,
-        "city": null,
-        "country": null,
-        "tax_id": null
-      },
-      "acl_accounts": {
-        "email": "email",
-        "pin_code": null
-      },
-      "tservicepartner": {
-        "cWWW": null,
-        "cOnlineshop": null,
-        "cYoutube": null
-      },
-      "exs_order_metas": {
-        "name": "nomask"
-      },
-      "exs_seller_profiles": {
-        "company_name": "company_unique",
-        "system_mail_address": "email"
-      },
-      "re_order_items": {
-        "name": "nomask"
-      },
-      "tspkundensegment": {
-        "cname": "nomask"
-      },
-      "tregistrierungszweck": {
-        "cname": "nomask"
-      },
-      "treferenzgeschaeftsbereiche": {
-        "cname": "nomask"
-      },
-      "trechnungskorrekturpos": {
-        "cname": "nomask"
-      },
-      "tprodukt": {
-        "cname": "nomask"
-      },
-      "tlicapplication_old": {
-        "cname": "nomask"
-      },
-      "tleistung": {
-        "cname": "nomask"
-      },
-      "tland": {
-        "cname": "nomask"
-      },
-      "tzertifikat": {
-        "cname": "nomask"
-      },
-      "twarenwirtschaft": {
-        "cname": "nomask"
-      },
-      "tvorlagenkategorien": {
-        "cname": "nomask"
-      },
-      "tvorlagenkategoriegruppen": {
-        "cname": "nomask"
-      },
-      "tvertriebcasebranche": {
-        "cname": "nomask"
-      },
-      "tversandvolumen": {
-        "cname": "nomask"
-      },
-      "ttechnologiepartnerkategorie": {
-        "cname": "nomask"
-      },
-      "tkaufprodukt": {
-        "cname": "nomask"
-      },
-      "ttag": {
-        "cname": "nomask"
-      },
-      "tsupportleistung": {
-        "cname": "nomask"
-      },
-      "tsupportcasestatus": {
-        "cname": "nomask"
-      },
-      "tsupportcasequelle": {
-        "cname": "nomask"
-      },
-      "tsupportcaseproduktbereich": {
-        "cname": "nomask"
-      },
-      "tsupportcaseprodukt": {
-        "cname": "nomask"
-      },
-      "tsupportcaseanliegen": {
-        "cname": "nomask"
-      },
-      "tspprojektgroessen": {
-        "cname": "nomask"
-      },
-      "tspprojekt": {
-        "cname": "nomask"
-      },
-      "tabrechnungprodukt": {
-        "cname": "nomask"
-      },
-      "tdirektleistung": {
-        "cname": "nomask"
-      },
-      "tcron": {
-        "cname": "nomask"
-      },
-      "tbranche": {
-        "cname": "nomask"
-      },
-      "tanzahlmitarbeiter": {
-        "cname": "nomask"
-      },
-      "taccountverwaltung": {
-        "cname": "nomask"
-      },
-      "taccountumgebung": {
-        "cname": "nomask"
-      },
-      "taccountrolle": {
-        "cname": "nomask"
-      },
-      "taccounthierachie": {
-        "cname": "nomask"
-      },
-      "tabrechnungtransaktionenmeta": {
-        "cname": "nomask"
-      },
-      "tdownloadprodukt": {
-        "cname": "nomask"
-      },
-      "portfolio_wertliste": {
-        "cname": "nomask"
-      },
-      "portfolio_produktfamiliei18n": {
-        "cname": "nomask"
-      },
-      "portfolio_platzierung": {
-        "cname": "nomask"
-      },
-      "portfolio_leistungi18n": {
-        "cname": "nomask"
-      },
-      "portfolio_distributionstypi18n": {
-        "cname": "nomask"
-      },
-      "portfolio_anwendungi18n": {
-        "cname": "nomask"
-      },
-      "portfolio_angeboti18n": {
-        "cname": "nomask"
-      },
-      "portfolio_absatzmarkt": {
-        "cname": "nomask"
-      },
-      "thostingleistunggruppe": {
-        "cname": "nomask"
-      },
-      "tkategorie": {
-        "cname": "nomask"
-      },
-      "tjtlshippingversanddienstleister": {
-        "cname": "nomask"
-      },
-      "thostingpossperregrund": {
-        "cname": "nomask"
-      },
-      "thostingpossperrebereich": {
-        "cname": "nomask"
-      },
-      "thostingleistungextradomain": {
-        "cname": "nomask"
-      },
-      "thostingleistungextra": {
-        "cname": "nomask"
-      },
-      "thostingleistung": {
-        "cname": "nomask"
-      },
-      "thilfsmittel": {
-        "cname": "nomask"
-      },
-      "thilfsmittelrubrik": {
-        "cname": "nomask"
-      },
-      "tgeschaeftsform": {
-        "cname": "nomask"
-      },
-      "terweiterungkategorie": {
-        "cname": "nomask"
-      },
-      "terweiterung": {
-        "cname": "nomask"
-      },
-      "terfahrenquelle": {
-        "cname": "nomask"
-      }
     }
   }
 }

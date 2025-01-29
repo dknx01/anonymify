@@ -5,8 +5,9 @@
  * @copyright dknx01 (https://github.com/dknx01/anonymify)
  */
 
-namespace App\Tests\Unit\Obfuscate\Task;
+namespace App\Tests\Unit\Anonymify\Column\Task;
 
+use App\Anonymify\Column\Task\NoMask;
 use App\Configuration\Anonymify\Definition;
 use App\Configuration\Anonymify\Table;
 use App\Configuration\Anonymify\TableDefinitions;
@@ -33,7 +34,7 @@ class NoMaskTest extends TestCase
 
     public function testGetName(): void
     {
-        $this->assertSame('nomask', \App\Anonymify\Column\Task\NoMask::getName());
+        $this->assertSame('nomask', NoMask::getName());
     }
 
     public function testRunForTable(): void
@@ -55,9 +56,9 @@ class NoMaskTest extends TestCase
         $task->run($definition, $tableDefinition);
     }
 
-    private function getTask(): \App\Anonymify\Column\Task\NoMask
+    private function getTask(): NoMask
     {
-        return new \App\Anonymify\Column\Task\NoMask(
+        return new NoMask(
             Factory::create('de_DE'),
             $this->entityManager->reveal(),
             $this->logger

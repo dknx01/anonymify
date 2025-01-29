@@ -5,7 +5,7 @@
  * @copyright dknx01 (https://github.com/dknx01/anonymify)
  */
 
-namespace App\Tests\Unit\Obfuscate\Task;
+namespace App\Tests\Unit\Anonymify\Column\Task;
 
 use App\Anonymify\Column\Task\VAT;
 use App\Configuration\Anonymify\Definition;
@@ -65,7 +65,7 @@ class VATTest extends TestCase
         $connection->executeQuery('SELECT * FROM table1')
             ->shouldBeCalledOnce()
             ->willReturn($dataResult->reveal());
-        $connection->insert('OBFUSCATE_table1', ['vat' => 'DE 999999999'])->shouldBeCalledOnce()->willReturn(1);
+        $connection->insert('ANONYMIFY_table1', ['vat' => 'DE 999999999'])->shouldBeCalledOnce()->willReturn(1);
         $this->mockCopyData($connection);
         $this->entityManager->getConnection()->shouldBeCalled()->willReturn($connection->reveal());
 
@@ -99,7 +99,7 @@ class VATTest extends TestCase
             ->shouldBeCalledOnce()
             ->willReturn($dataResult->reveal());
 
-        $connection->insert('OBFUSCATE_table1', ['vat' => 'DE 999999999'])->shouldBeCalledOnce()->willReturn(1);
+        $connection->insert('ANONYMIFY_table1', ['vat' => 'DE 999999999'])->shouldBeCalledOnce()->willReturn(1);
         $this->mockCopyData($connection);
         $this->entityManager->getConnection()->shouldBeCalled()->willReturn($connection->reveal());
 
@@ -126,11 +126,11 @@ class VATTest extends TestCase
         $connection->executeQuery('SELECT * FROM table1')
             ->shouldBeCalledOnce()
             ->willReturn($dataResult->reveal());
-        $connection->insert('OBFUSCATE_table1', ['vat' => 'DE 999999999'])->shouldBeCalledOnce()->willReturn(1);
+        $connection->insert('ANONYMIFY_table1', ['vat' => 'DE 999999999'])->shouldBeCalledOnce()->willReturn(1);
         $this->mockCopyData($connection);
         $this->entityManager->getConnection()->shouldBeCalled()->willReturn($connection->reveal());
 
-        $tableDefinition = new TableDefinitions([]);
+        new TableDefinitions([]);
         $definition = new Definition('vat', null);
         $this->getTask()->runForTable($definition, 'table1');
     }

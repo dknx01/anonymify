@@ -5,7 +5,7 @@
  * @copyright dknx01 (https://github.com/dknx01/anonymify)
  */
 
-namespace App\Tests\Unit\Obfuscate\Task;
+namespace App\Tests\Unit\Anonymify\Column\Task;
 
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\Exception;
