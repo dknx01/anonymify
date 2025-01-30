@@ -23,7 +23,7 @@ readonly class Processor
     ) {
     }
 
-    public function preProcess(Processing $preProcessing): void
+    public function process(Processing $config): void
     {
         $triggers = $this->getTriggers();
         foreach ($triggers as $trigger) {
@@ -32,7 +32,7 @@ readonly class Processor
             );
         }
         foreach ($this->tasks as $task) {
-            $task->run($preProcessing);
+            $task->run($config);
         }
     }
 

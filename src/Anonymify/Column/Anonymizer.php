@@ -25,7 +25,7 @@ class Anonymizer
     ) {
     }
 
-    public function obfuscate(Processing $config): void
+    public function anonymize(Processing $config): void
     {
         $this->logger->info('General anonymisation');
         $this->processGeneralTasks($config);

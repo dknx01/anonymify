@@ -1,7 +1,7 @@
 Anonymify
 ===
 
-A tool to anonymize data in a database.
+A tool to anonymize data in a database (**MySQL/MariaDB only**).
 <!-- TOC -->
 * [Anonymify](#anonymify)
 * [Install](#install)

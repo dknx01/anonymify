@@ -24,7 +24,7 @@ trait TaskMockingTrait
     {
         $connection->executeQuery(Argument::that(
             static fn (string $query): bool => str_starts_with($query, 'CREATE TABLE')
-        ))->shouldBeCalledOnce()->willReturn($this->prophesize(Result::class)->reveal());
+        ))->shouldBeCalled()->willReturn($this->prophesize(Result::class)->reveal());
     }
 
     /**

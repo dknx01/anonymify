@@ -12,6 +12,7 @@ namespace App\Command;
 use App\Anonymify\Column\Anonymizer;
 use App\Anonymify\Db\Processor;
 use App\Configuration\Reader;
+use App\Configuration\ReaderValidationException;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
@@ -42,10 +43,10 @@ class AnonymifyCommand extends Command
         try {
             $config = $this->reader->readConfig($input->getOption('config'));
             $io->section('anonymous whole table data');
-            $this->processor->preProcess($config);
+            $this->processor->process($config);
             $io->section('anonymous column data');
-            $this->anonymizer->obfuscate($config);
-        } catch (\JsonException $e) {
+            $this->anonymizer->anonymize($config);
+        } catch (ReaderValidationException|\JsonException $e) {
             $io->error($e->getMessage());
 
             return Command::FAILURE;

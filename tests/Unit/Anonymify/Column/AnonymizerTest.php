@@ -53,6 +53,14 @@ class AnonymizerTest extends TestCase
             ->shouldBeCalledOnce()
             ->willReturn($dataResult->reveal());
 
+        $dataComment = $this->prophesize(Result::class);
+        $dataComment->iterateAssociative()->shouldBeCalledOnce()->willReturn(
+            new \ArrayObject([['country' => 'Land of Confusion']])
+        );
+        $connection->executeQuery('SELECT * FROM comment')
+            ->shouldBeCalledOnce()
+            ->willReturn($dataComment->reveal());
+
         $connection->getDatabase()->shouldBeCalled()->willReturn('MyDB');
         // mock temporary table creation
         $this->mockTemporaryTableCreation($connection);
@@ -61,6 +69,8 @@ class AnonymizerTest extends TestCase
         $this->entityManager->getConnection()->shouldBeCalled()->willReturn($connection->reveal());
 
         $connection->insert('ANONYMIFY_table1', ['name' => 'B***********m'])
+            ->shouldBeCalledOnce()->willReturn(1);
+        $connection->insert('ANONYMIFY_comment', ['country' => 'L***************n'])
             ->shouldBeCalledOnce()->willReturn(1);
         $logger = new NullLogger();
 
@@ -73,12 +83,21 @@ class AnonymizerTest extends TestCase
         $json->anonymize->general = [
             'name' => null,
         ];
+        $json->anonymize->tables = [];
+        $json->anonymize->tables['comment'] = [
+            'country' => null,
+        ];
         $json->truncate = [];
         $json->default_masking = new \stdClass();
+        $json->json = [];
+        $json->scripts = [];
+        $json->static_text = [];
+        $json->binary_empty = [];
+        $json->tables = [];
 
         $config = Processing::fromStdClass($json);
 
         $anonymizer = new Anonymizer($tasks, $logger);
-        $anonymizer->obfuscate($config);
+        $anonymizer->anonymize($config);
     }
 }
