@@ -29,3 +29,7 @@ phpstan.neon
 docker/data/mysql2/
 
 .env
+
+###> qossmic/deptrac ###
+/.deptrac.cache
+###< qossmic/deptrac ###

@@ -1,0 +1,69 @@
+deptrac:
+    paths:
+        - ./src
+    exclude_files:
+        - '#.*test.*#'
+    layers:
+        -
+            name: Command
+            collectors:
+                -
+                    type: directory
+                    value: src/Command/
+        -
+            name: Service
+            collectors:
+                -
+                    type: class
+                    value: .*\\Column\\Anonymizer$
+                -
+                    type: class
+                    value: .*\\Db\\Processor$
+        -
+            name: Task
+            collectors:
+                -
+                    type: glob
+                    value: src/Anonymify/**/Task
+                -
+                    type: interface
+                    value: .*AnonymifyTask.*
+                -
+                    type: interface
+                    value: .*Task.*
+        -
+            name: Config
+            collectors:
+                -
+                    type: glob
+                    value: src/Configuration/**/*
+        -
+            name: Vendor
+            collectors:
+                -
+                    type: composer
+                    composerPath: composer.json
+                    composerLockPath: composer.lock
+                    packages:
+                        - symfony/console
+                        - symfony/filesystem
+                        - justinrainbow/json-schema
+                        - monolog/monolog
+                        - doctrine/dbal
+                        - doctrine/orm
+                        - psr/log
+    ruleset:
+        Command:
+            - Service
+            - Config
+            - Vendor
+        Service:
+            - Config
+            - Task
+            - Vendor
+        Config:
+            - Vendor
+        Task:
+            - Vendor
+            - Config
+
